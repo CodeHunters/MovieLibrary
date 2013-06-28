@@ -8,22 +8,19 @@ import javax.persistence.Entity;
 @Entity
 public class MyEntity {
 
-	// The Force.com JPA provider only supports annotating fields. Don't annotate
-	// the getter and setter properties below.
-	
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
-	private String id;
+	private int id;
     
 	private String name;
 
 	// TODO: Add additional commented-out sample fields
 	
-	public String getId() {
+	public int getId() {
 		return id;
 	}
 
-	public void setId(String id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 

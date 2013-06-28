@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+
+	<!-- Hibernate session factory -->
+	<bean id="sessionFactory"
+		class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean">
+		<property name="dataSource">
+			<ref bean="dataSource" />
+		</property>
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
+				<prop key="hibernate.show_sql">true</prop>
+				<prop key="hibernate.cache.use_second_level_cache">false</prop>
+				<prop key="hibernate.hbm2ddl.auto">create</prop>
+				<prop key="hibernate.format_sql">true</prop>
+			</props>
+		</property>
+		<property name="packagesToScan" value="gr.codehunters.MovieLibrary.model" />
+	</bean>
+
+    <bean id="create" class="gr.codehunters.MovieLibrary.dao.core.Create" scope="prototype"/>
+    <bean id="update" class="gr.codehunters.MovieLibrary.dao.core.Update" scope="prototype"/>
+    <bean id="delete" class="gr.codehunters.MovieLibrary.dao.core.Delete" scope="prototype"/>
+    <bean id="find"   class="gr.codehunters.MovieLibrary.dao.core.Find" scope="prototype"/>
+	
+</beans>
