@@ -25,44 +25,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="32f0efe3-dc57-4fa4-b036-2affd6173fb5" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/403.jsp" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/gr/codehunters/MovieLibrary/model/users/AddressEntity.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/gr/codehunters/MovieLibrary/init/ApplicationContextListener.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/gr/codehunters/MovieLibrary/service/Assembler.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/gr/codehunters/MovieLibrary/dao/core/Create.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/gr/codehunters/MovieLibrary/util/CustomHibernateDaoSupport.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/gr/codehunters/MovieLibrary/dao/core/Delete.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/gr/codehunters/MovieLibrary/dao/EntityDAO.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/gr/codehunters/MovieLibrary/dao/EntityDAOImpl.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/gr/codehunters/MovieLibrary/dao/core/Find.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/gr/codehunters/MovieLibrary/util/GsonUtils.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/gr/codehunters/MovieLibrary/util/JsonTableResponse.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/gr/codehunters/MovieLibrary/model/users/SecurityRoleEntity.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/gr/codehunters/MovieLibrary/factories/SecurityRoleFactory.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/gr/codehunters/MovieLibrary/dao/SecurityRolesDAO.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/gr/codehunters/MovieLibrary/dao/SecurityRolesDAOImpl.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/gr/codehunters/MovieLibrary/dao/core/SimpleAction.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/gr/codehunters/MovieLibrary/dao/core/Update.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/gr/codehunters/MovieLibrary/dao/UserDAO.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/gr/codehunters/MovieLibrary/dao/UserDAOImpl.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/gr/codehunters/MovieLibrary/service/UserDetailsServiceImpl.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/gr/codehunters/MovieLibrary/model/users/UserEntity.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/spring/application-security-context.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/spring/database/dataSource-configuration.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/spring/database/hibernate-configuration.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/login.jsp" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/config/webapp.properties" />
-      <change type="DELETED" beforePath="D:\code\codehunters\Libraries\src\main\resources\META-INF\persistence.xml" afterPath="" />
-      <change type="DELETED" beforePath="D:\code\codehunters\Libraries\src\main\resources\app-context.xml" afterPath="" />
-      <change type="DELETED" beforePath="D:\code\codehunters\Libraries\src\main\webapp\WEB-INF\spring\security-config.xml" afterPath="" />
-      <change type="DELETED" beforePath="D:\code\codehunters\Libraries\src\test\java\gr\codehunters\MovieLibrary\BasicCRUDIT.java" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/gr/codehunters/MovieLibrary/service/EntityService.java" afterPath="$PROJECT_DIR$/src/main/java/gr/codehunters/MovieLibrary/service/EntityService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/gr/codehunters/MovieLibrary/controller/HomeController.java" afterPath="$PROJECT_DIR$/src/main/java/gr/codehunters/MovieLibrary/controller/HomeController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/META-INF/MANIFEST.MF" afterPath="$PROJECT_DIR$/src/main/webapp/META-INF/MANIFEST.MF" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/gr/codehunters/MovieLibrary/model/MyEntity.java" afterPath="$PROJECT_DIR$/src/main/java/gr/codehunters/MovieLibrary/model/MyEntity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" />
-      <change type="MOVED" beforePath="D:\code\codehunters\Libraries\src\main\webapp\WEB-INF\spring\servlet-context.xml" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/spring/application-context.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/gr/codehunters/MovieLibrary/init/ApplicationContextListener.java" afterPath="$PROJECT_DIR$/src/main/java/gr/codehunters/MovieLibrary/init/ApplicationContextListener.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/gr/codehunters/MovieLibrary/service/Assembler.java" afterPath="$PROJECT_DIR$/src/main/java/gr/codehunters/MovieLibrary/service/Assembler.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/gr/codehunters/MovieLibrary/dao/core/Create.java" afterPath="$PROJECT_DIR$/src/main/java/gr/codehunters/MovieLibrary/dao/core/Create.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/gr/codehunters/MovieLibrary/dao/core/Delete.java" afterPath="$PROJECT_DIR$/src/main/java/gr/codehunters/MovieLibrary/dao/core/Delete.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/gr/codehunters/MovieLibrary/dao/EntityDAO.java" afterPath="$PROJECT_DIR$/src/main/java/gr/codehunters/MovieLibrary/dao/EntityDAO.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/gr/codehunters/MovieLibrary/dao/EntityDAOImpl.java" afterPath="$PROJECT_DIR$/src/main/java/gr/codehunters/MovieLibrary/dao/EntityDAOImpl.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/gr/codehunters/MovieLibrary/dao/core/Find.java" afterPath="$PROJECT_DIR$/src/main/java/gr/codehunters/MovieLibrary/dao/core/Find.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/gr/codehunters/MovieLibrary/util/GsonUtils.java" afterPath="$PROJECT_DIR$/src/main/java/gr/codehunters/MovieLibrary/util/GsonUtils.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/gr/codehunters/MovieLibrary/util/JsonTableResponse.java" afterPath="$PROJECT_DIR$/src/main/java/gr/codehunters/MovieLibrary/util/JsonTableResponse.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/gr/codehunters/MovieLibrary/dao/core/SimpleAction.java" afterPath="$PROJECT_DIR$/src/main/java/gr/codehunters/MovieLibrary/dao/core/SimpleAction.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/gr/codehunters/MovieLibrary/dao/core/Update.java" afterPath="$PROJECT_DIR$/src/main/java/gr/codehunters/MovieLibrary/dao/core/Update.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/gr/codehunters/MovieLibrary/service/UserDetailsServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/gr/codehunters/MovieLibrary/service/UserDetailsServiceImpl.java" />
     </list>
     <ignored path="MovieLibrary.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -88,7 +62,7 @@
     <file path="C:/code/fnm/nms/build/java/com/adva/nlms/idl/mediation/config/NetworkElementHdlr.java" changelist="32f0efe3-dc57-4fa4-b036-2affd6173fb5" time="1372410759634" ignored="false" />
     <file path="/MANIFEST.MF" changelist="32f0efe3-dc57-4fa4-b036-2affd6173fb5" time="1372410958636" ignored="false" />
     <file path="C:/code/personal/AutoHome/homeAutomation/src/main/webapp/WEB-INF/spring/database/Hibernate.xml" changelist="32f0efe3-dc57-4fa4-b036-2affd6173fb5" time="1372417387279" ignored="false" />
-    <file path="/a.dummy" changelist="32f0efe3-dc57-4fa4-b036-2affd6173fb5" time="1372430864808" ignored="false" />
+    <file path="/a.dummy" changelist="32f0efe3-dc57-4fa4-b036-2affd6173fb5" time="1372432464679" ignored="false" />
     <file path="/EntityDAO.java" changelist="32f0efe3-dc57-4fa4-b036-2affd6173fb5" time="1372420353343" ignored="false" />
     <file path="/EntityDAOImpl.java" changelist="32f0efe3-dc57-4fa4-b036-2affd6173fb5" time="1372427258601" ignored="false" />
     <file path="/EntityService.java" changelist="32f0efe3-dc57-4fa4-b036-2affd6173fb5" time="1372420314734" ignored="false" />
@@ -147,7 +121,7 @@
     </breakpoint_any>
     <ui_properties default_suspend_policy="SuspendAll" default_condition_enabled="true" />
     <line_breakpoints default_suspend_policy="SuspendAll" default_condition_enabled="true">
-      <breakpoint url="file://$PROJECT_DIR$/src/main/java/gr/codehunters/MovieLibrary/init/ApplicationContextListener.java" line="49" class="gr.codehunters.MovieLibrary.init.ApplicationContextListener" package="gr.codehunters.MovieLibrary.init">
+      <breakpoint url="file://$PROJECT_DIR$/src/main/java/gr/codehunters/MovieLibrary/init/ApplicationContextListener.java" line="42" class="gr.codehunters.MovieLibrary.init.ApplicationContextListener" package="gr.codehunters.MovieLibrary.init">
         <option name="ENABLED" value="true" />
         <option name="LOG_ENABLED" value="false" />
         <option name="LOG_EXPRESSION_ENABLED" value="false" />
@@ -172,10 +146,142 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="pom.xml" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/pom.xml">
+      <file leaf-file-name="AddressEntity.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/gr/codehunters/MovieLibrary/model/users/AddressEntity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="18" column="117" selection-start="960" selection-end="960" vertical-scroll-proportion="0.40422723">
+            <state line="10" column="13" selection-start="264" selection-end="264" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SecurityRoleEntity.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/gr/codehunters/MovieLibrary/model/users/SecurityRoleEntity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="10" column="13" selection-start="278" selection-end="278" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="UserEntity.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/gr/codehunters/MovieLibrary/model/users/UserEntity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="20" column="13" selection-start="652" selection-end="652" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MyEntity.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/gr/codehunters/MovieLibrary/model/MyEntity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="8" column="13" selection-start="210" selection-end="210" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Assembler.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/gr/codehunters/MovieLibrary/service/Assembler.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="14" column="13" selection-start="526" selection-end="526" vertical-scroll-proportion="0.0">
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="EntityService.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/gr/codehunters/MovieLibrary/service/EntityService.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="31" column="37" selection-start="822" selection-end="822" vertical-scroll-proportion="0.0">
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="UserDetailsServiceImpl.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/gr/codehunters/MovieLibrary/service/UserDetailsServiceImpl.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="13" column="13" selection-start="644" selection-end="644" vertical-scroll-proportion="0.0">
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Create.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/gr/codehunters/MovieLibrary/dao/core/Create.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Delete.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/gr/codehunters/MovieLibrary/dao/core/Delete.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Find.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/gr/codehunters/MovieLibrary/dao/core/Find.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SimpleAction.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/gr/codehunters/MovieLibrary/dao/core/SimpleAction.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Update.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/gr/codehunters/MovieLibrary/dao/core/Update.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CustomHibernateDaoSupport.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/gr/codehunters/MovieLibrary/util/CustomHibernateDaoSupport.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="6" column="22" selection-start="238" selection-end="238" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="GsonUtils.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/gr/codehunters/MovieLibrary/util/GsonUtils.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="JsonTableResponse.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/gr/codehunters/MovieLibrary/util/JsonTableResponse.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -199,22 +305,22 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/spring/database/hibernateConfiguration.xml" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/spring/database/hibernate-configuration.xml" />
-        <option value="$PROJECT_DIR$/src/main/webapp/META-INF/MANIFEST.MF" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/spring/application-context.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/gr/codehunters/MovieLibrary/model/MyEntity.java" />
-        <option value="$PROJECT_DIR$/src/main/java/gr/codehunters/MovieLibrary/service/EntityService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/gr/codehunters/MovieLibrary/dao/UserDAOImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/gr/codehunters/MovieLibrary/dao/EntityDAO.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/spring/application-security-context.xml" />
         <option value="$PROJECT_DIR$/src/main/java/gr/codehunters/MovieLibrary/dao/SecurityRolesDAOImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/gr/codehunters/MovieLibrary/dao/EntityDAOImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/gr/codehunters/MovieLibrary/service/Assembler.java" />
-        <option value="$PROJECT_DIR$/src/main/java/gr/codehunters/MovieLibrary/service/UserDetailsServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" />
         <option value="$PROJECT_DIR$/src/main/java/gr/codehunters/MovieLibrary/controller/HomeController.java" />
         <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/gr/codehunters/MovieLibrary/service/UserDetailsServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/gr/codehunters/MovieLibrary/service/Assembler.java" />
+        <option value="$PROJECT_DIR$/src/main/java/gr/codehunters/MovieLibrary/dao/EntityDAO.java" />
+        <option value="$PROJECT_DIR$/src/main/java/gr/codehunters/MovieLibrary/dao/EntityDAOImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/gr/codehunters/MovieLibrary/init/ApplicationContextListener.java" />
+        <option value="$PROJECT_DIR$/src/main/java/gr/codehunters/MovieLibrary/util/JsonTableResponse.java" />
+        <option value="$PROJECT_DIR$/src/main/java/gr/codehunters/MovieLibrary/dao/core/Create.java" />
+        <option value="$PROJECT_DIR$/src/main/java/gr/codehunters/MovieLibrary/dao/core/Delete.java" />
+        <option value="$PROJECT_DIR$/src/main/java/gr/codehunters/MovieLibrary/dao/core/Find.java" />
+        <option value="$PROJECT_DIR$/src/main/java/gr/codehunters/MovieLibrary/dao/core/SimpleAction.java" />
+        <option value="$PROJECT_DIR$/src/main/java/gr/codehunters/MovieLibrary/dao/core/Update.java" />
+        <option value="$PROJECT_DIR$/src/main/java/gr/codehunters/MovieLibrary/util/GsonUtils.java" />
       </list>
     </option>
   </component>
@@ -476,6 +582,10 @@
               <option name="myItemId" value="MovieLibrary" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="util" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -598,6 +708,36 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="init" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="MovieLibrary" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Libraries" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="MovieLibrary" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="factories" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -844,12 +984,12 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3295082" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33333334" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.49025974" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.1991342" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TeamCity" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -860,10 +1000,10 @@
       <window_info id="simpleUML" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Maven Projects" active="true" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.0832444" sideWeight="0.8474026" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.0832444" sideWeight="0.50974023" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.23959444" sideWeight="0.8474026" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.1525974" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.29402348" sideWeight="0.50974023" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.1525974" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
@@ -935,62 +1075,44 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/gr/codehunters/MovieLibrary/dao/UserDAO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="5" selection-start="388" selection-end="391" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/gr/codehunters/MovieLibrary/dao/EntityDAO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="5" selection-start="391" selection-end="391" vertical-scroll-proportion="0.34812286">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/gr/codehunters/MovieLibrary/dao/SecurityRolesDAO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="0" selection-start="169" selection-end="375" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/gr/codehunters/MovieLibrary/dao/SecurityRolesDAOImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="34" selection-start="282" selection-end="282" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/gr/codehunters/MovieLibrary/dao/UserDAOImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="78" column="25" selection-start="2188" selection-end="2202" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/gr/codehunters/MovieLibrary/dao/EntityDAOImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="13" selection-start="714" selection-end="714" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/gr/codehunters/MovieLibrary/init/ApplicationContextListener.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="72" selection-start="731" selection-end="731" vertical-scroll-proportion="0.0">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/gr/codehunters/MovieLibrary/model/users/AddressEntity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="10" column="13" selection-start="264" selection-end="264" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/gr/codehunters/MovieLibrary/model/users/SecurityRoleEntity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="10" column="13" selection-start="278" selection-end="278" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/gr/codehunters/MovieLibrary/model/users/UserEntity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="20" column="13" selection-start="652" selection-end="652" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/gr/codehunters/MovieLibrary/model/MyEntity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="8" column="13" selection-start="210" selection-end="210" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/gr/codehunters/MovieLibrary/service/Assembler.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="30" column="4" selection-start="1258" selection-end="1258" vertical-scroll-proportion="0.0">
+        <state line="14" column="13" selection-start="526" selection-end="526" vertical-scroll-proportion="0.0">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1006,53 +1128,67 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/login.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="20" column="54" selection-start="744" selection-end="744" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/spring/application-security-context.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="38" column="127" selection-start="2093" selection-end="2093" vertical-scroll-proportion="1.0034904">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/gr/codehunters/MovieLibrary/service/UserDetailsServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="16" selection-start="764" selection-end="764" vertical-scroll-proportion="0.0">
+        <state line="13" column="13" selection-start="644" selection-end="644" vertical-scroll-proportion="0.0">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/home.jsp">
+    <entry file="file://$PROJECT_DIR$/src/main/java/gr/codehunters/MovieLibrary/util/CustomHibernateDaoSupport.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="22" selection-start="238" selection-end="238" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/gr/codehunters/MovieLibrary/util/JsonTableResponse.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml">
+    <entry file="file://$PROJECT_DIR$/src/main/java/gr/codehunters/MovieLibrary/dao/core/Create.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="55" column="22" selection-start="1859" selection-end="1859" vertical-scroll-proportion="0.0">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/gr/codehunters/MovieLibrary/controller/HomeController.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/gr/codehunters/MovieLibrary/dao/core/Delete.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="22" selection-start="603" selection-end="603" vertical-scroll-proportion="0.34812286">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
+    <entry file="file://$PROJECT_DIR$/src/main/java/gr/codehunters/MovieLibrary/dao/core/Find.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="117" selection-start="960" selection-end="960" vertical-scroll-proportion="0.40422723">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/gr/codehunters/MovieLibrary/dao/core/SimpleAction.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/gr/codehunters/MovieLibrary/dao/core/Update.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/gr/codehunters/MovieLibrary/util/GsonUtils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>

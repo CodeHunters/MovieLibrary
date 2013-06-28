@@ -1,10 +1,3 @@
-/*
- *  Copyright 2013 ADVA AG Optical Networking. All rights reserved.
- *
- *  Owner: arongas
- *
- *  $Id: $
- */
 package gr.codehunters.MovieLibrary.dao.core;
 
 import org.hibernate.Criteria;

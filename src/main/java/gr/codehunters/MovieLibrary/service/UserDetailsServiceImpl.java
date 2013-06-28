@@ -17,7 +17,6 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 	@Autowired
 	private Assembler assembler;
 
-	@Transactional(readOnly = true)
 	public UserDetails loadUserByUsername(String username)      throws UsernameNotFoundException, DataAccessException {
 		UserEntity userEntity = userDao.findByUserName(username);
 		if (userEntity == null){

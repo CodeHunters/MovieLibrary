@@ -6,7 +6,6 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.GrantedAuthorityImpl;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -14,7 +13,6 @@ import java.util.Set;
 
 @Service("assembler")
 public class Assembler {
-	@Transactional(readOnly = true)
 	User buildUserFromUserEntity(UserEntity userEntity) {
 		String username = userEntity.getUserName();
 		String password = userEntity.getPassword();
@@ -28,7 +26,6 @@ public class Assembler {
 		for (SecurityRoleEntity role: roles){
 			authorities.add(new GrantedAuthorityImpl(role.getRoleName()));	
 		}
-    return new User(username, password, enabled, accountNonExpired,
-        credentialsNonExpired, accountNonLocked, authorities);
+    return new User(username, password, enabled, accountNonExpired,credentialsNonExpired, accountNonLocked, authorities);
 	}
 }
