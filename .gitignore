@@ -1,0 +1,17 @@
+#ignore everything under the 'bin' folder
+target/
+.idea/
+#ignore everything under any CVS folders
+CVS/
+#ignore the eclipse configuration files
+.classpath
+.project
+
+
+
+# Files #
+*.class
+*.jar
+*.war
+*.ear
+*.iml
