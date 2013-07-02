@@ -1,16 +1,16 @@
 package gr.codehunters.MovieLibrary.factories;
 
-import gr.codehunters.MovieLibrary.model.users.SecurityRoleEntity;
+import gr.codehunters.MovieLibrary.model.users.SecurityRoleEntityDBImpl;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class SecurityRoleFactory {
 		
-    public List<SecurityRoleEntity> generateSecurityRoles(String[] roleNames){
-    	List<SecurityRoleEntity> roles=new ArrayList<SecurityRoleEntity>();
+    public List<SecurityRoleEntityDBImpl> generateSecurityRoles(String[] roleNames){
+    	List<SecurityRoleEntityDBImpl> roles=new ArrayList<SecurityRoleEntityDBImpl>();
     	for (String roleName:roleNames){
-    		roles.add(new SecurityRoleEntity(roleName));
+    		roles.add(new SecurityRoleEntityDBImpl(roleName));
     	}
     	return roles;
     }

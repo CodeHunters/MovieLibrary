@@ -4,12 +4,11 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
-import gr.codehunters.MovieLibrary.model.users.UserEntity;
+import gr.codehunters.MovieLibrary.model.users.UserEntityDBImpl;
 import gr.codehunters.MovieLibrary.dao.core.Create;
 import gr.codehunters.MovieLibrary.dao.core.Delete;
 import gr.codehunters.MovieLibrary.dao.core.Find;
 import gr.codehunters.MovieLibrary.dao.core.Update;
-import gr.codehunters.MovieLibrary.util.CustomHibernateDaoSupport;
 import org.hibernate.criterion.Order;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -30,29 +29,29 @@ public class UserDAOImpl extends CustomHibernateDaoSupport implements UserDAO {
 
   @PostConstruct
   public void postConstruct(){
-    find.setFullyQualifiedClassName(UserEntity.class.getName());
+    find.setFullyQualifiedClassName(UserEntityDBImpl.class.getName());
   }
 
   @Override
-	public void save(UserEntity user) {
+	public void save(UserEntityDBImpl user) {
 		create.execute(user);
 	}
 
 	@Override
-	public void update(UserEntity user) {
+	public void update(UserEntityDBImpl user) {
 		update.execute(user);
 	}
 
 	@Override
-	public void delete(UserEntity user) {
+	public void delete(UserEntityDBImpl user) {
 		delete.execute(user);
 	}
 
-	@SuppressWarnings({ "rawtypes", "unchecked" })
+  @SuppressWarnings({"rawtypes", "unchecked", "UnnecessaryLocalVariable"})
 	@Override
-	public UserEntity findByUserName(String userName) {
-		List find = getHibernateTemplate().findByNamedParam("select u from UserEntity u where u.userName = :un", "un", userName);
-		List<UserEntity> users = find;
+	public UserEntityDBImpl findByUserName(String userName) {
+		List find = getHibernateTemplate().findByNamedParam("select u from UserEntityDBImpl u where u.userName = :un", "un", userName);
+		List<UserEntityDBImpl> users = find;
 		if (users!=null && users.size()>0)
 		{
 			return users.get(0);
@@ -60,10 +59,23 @@ public class UserDAOImpl extends CustomHibernateDaoSupport implements UserDAO {
 			return null;
 		}
 	}
+
+  @SuppressWarnings({"rawtypes", "unchecked", "UnnecessaryLocalVariable"})
+ 	@Override
+  public UserEntityDBImpl findById(int id){
+ 		List find = getHibernateTemplate().findByNamedParam("select u from UserEntityDBImpl u where u.user_id = :uid", "uid", id);
+ 		List<UserEntityDBImpl> users = find;
+ 		if (users!=null && users.size()>0)
+ 		{
+ 			return users.get(0);
+ 		}else{
+ 			return null;
+ 		}
+ 	}
 	
   @SuppressWarnings({ "rawtypes", "unchecked" })
 		@Override
-		public Set<UserEntity> listUser(Integer firstResult,Integer maxResults,String shortingColumn,Boolean asc) {
+		public Set<UserEntityDBImpl> listUser(Integer firstResult,Integer maxResults,String shortingColumn,Boolean asc) {
 	    if (firstResult==null) firstResult=0;
 	    if (maxResults==null) maxResults=10;
 	    List<Order> orders=new ArrayList<Order>();
@@ -75,7 +87,7 @@ public class UserDAOImpl extends CustomHibernateDaoSupport implements UserDAO {
 
   @SuppressWarnings({ "rawtypes", "unchecked" })
 	@Override
-	public Set<UserEntity> listUser() {
+	public Set<UserEntityDBImpl> listUser() {
     return find.execute();
 	}
 

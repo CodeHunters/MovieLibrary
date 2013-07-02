@@ -1,18 +1,24 @@
 package gr.codehunters.MovieLibrary.init;
 
+import gr.codehunters.MovieLibrary.exceptions.PasswordException;
 import gr.codehunters.MovieLibrary.factories.SecurityRoleFactory;
-import gr.codehunters.MovieLibrary.model.users.SecurityRoleEntity;
-import gr.codehunters.MovieLibrary.model.users.UserEntity;
+import gr.codehunters.MovieLibrary.model.users.SecurityRoleEntityDBImpl;
+import gr.codehunters.MovieLibrary.model.users.UserEntityDBImpl;
 import gr.codehunters.MovieLibrary.dao.SecurityRolesDAO;
 import gr.codehunters.MovieLibrary.dao.UserDAO;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.context.ApplicationListener;
 import java.util.List;
 import java.util.Set;
+
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationEvent;
 import org.springframework.context.event.ContextRefreshedEvent;
 
 public class ApplicationContextListener implements ApplicationListener<ApplicationEvent> {
+  private static final Logger log = LoggerFactory.getLogger(ApplicationContextListener.class.getName());
     @Autowired
     SecurityRolesDAO securityRolesDAO;
     @Autowired
@@ -31,20 +37,25 @@ public class ApplicationContextListener implements ApplicationListener<Applicati
 	}
 
 	private void initializeUsers() {
-		Set<UserEntity> users=userDao.listUser();
+		Set<UserEntityDBImpl> users=userDao.listUser();
 		if (users.size()==0){
-			UserEntity admin=new UserEntity("admin","admin","admin","admin","admin");
-			admin.getUserSecurityRoleEntity().addAll(securityRolesDAO.listRoles());
-			userDao.save(admin);
+      UserEntityDBImpl admin;
+      try {
+        admin = new UserEntityDBImpl("admin","admin","admin","admin","admin");
+        admin.getUserSecurityRoleEntity().addAll(securityRolesDAO.listRoles());
+  			userDao.save(admin);
+      } catch (PasswordException e) {
+         log.error(e.getMessage());
+      }
 		}
 	}
 
 	private void initializeSecurityRoles(){
-		List<SecurityRoleEntity> rolesFromDB=securityRolesDAO.listRoles();
+		List<SecurityRoleEntityDBImpl> rolesFromDB=securityRolesDAO.listRoles();
 		if (rolesFromDB.size()==0){
 			SecurityRoleFactory roleFactory=new SecurityRoleFactory();
-			List<SecurityRoleEntity> roles=roleFactory.generateSecurityRoles(roleNames);
-			for (SecurityRoleEntity role:roles){
+			List<SecurityRoleEntityDBImpl> roles=roleFactory.generateSecurityRoles(roleNames);
+			for (SecurityRoleEntityDBImpl role:roles){
 				securityRolesDAO.save(role);
 			}
 		}
