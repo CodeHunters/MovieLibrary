@@ -1,14 +1,4 @@
-/*
- *  Copyright 2013 ADVA Optical Networking SE. All rights reserved.
- *
- *  Owner: arongas
- *
- *  $Id: $
- */
 package gr.codehunters.MovieLibrary.model;
-
-import gr.codehunters.MovieLibrary.model.dto.users.AddressEntityDTOImpl;
-import gr.codehunters.MovieLibrary.model.dto.users.SecurityRoleEntityDTOImpl;
 
 import java.util.Set;
 

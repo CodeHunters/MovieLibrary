@@ -1,10 +1,3 @@
-/*
- *  Copyright 2013 ADVA Optical Networking SE. All rights reserved.
- *
- *  Owner: arongas
- *
- *  $Id: $
- */
 package gr.codehunters.MovieLibrary.model;
 
 public interface SecurityRoleEntity<ID,NAME,SOURCE,DESTINATION> extends Identifiable<ID>,Nameable<NAME>,Convertable<SOURCE,DESTINATION>{
