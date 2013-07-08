@@ -12,12 +12,17 @@
 		<table>
 			<tr>
 				<td>User Name:</td><td><form:input size="40" path="userName"/></td>
+				<td>
+				  <form:errors path="userName" cssClass="error"/>
+				</td>
 			</tr>
 			<tr>
 				<td>First Name:</td><td><form:input size="40" path="first_name"/></td>
+				<td><form:errors path="first_name" cssClass="error"/></td>
 			</tr>
 			<tr>
 				<td>Family Name:</td><td><form:input size="40" path="last_name"/></td>
+				<td><form:errors path="last_name" cssClass="error"/></td>
 			</tr>
 			<tr>
 				<td>Gender:</td>
@@ -26,18 +31,27 @@
                         <form:options items="${genderList}" />
                     </form:select>
 				</td>
+				<td></td>
 			</tr>
 			<tr>
 				<td>About You:</td><td><form:textarea path="aboutYou" rows="5" cols="30" /></td>
+				<td></td>
 			</tr>
 			<tr>
 				<td>Password:</td><td><form:password path="password"/></td>
+				<td><form:errors path="password" cssClass="error"/></td>
+			</tr>
+			<tr>
+				<td>Confirm Password:</td><td><form:password path="password_verify"/></td>
+				<td><form:errors path="password_verify" cssClass="error"/></td>
 			</tr>
 			<tr>
 				<td>Active:</td><td><form:checkbox path="active" /></td>
+				<td></td>
 			</tr>
 			<tr>
 				<td>Alerts:</td><td><form:checkbox path="alertsEnabled" /></td>
+				<td></td>
 			</tr>
 			<tr>
 				<td>Roles:</td>
@@ -46,9 +60,12 @@
                         <form:options items="${rolesOptionList}" itemValue="roleName" itemLabel="roleName"/>
                     </form:select>
 				</td>
+			    <td><form:errors path="userSecurityRoleEntity" cssClass="error"/></td>
 			</tr>
 		</table>
-		<p/>
+		<p>
+		  <form:errors cssClass="error"/>
+		</p>
 		<input type="submit" value="Save"/>
 		</form:form>
 	</jsp:body>

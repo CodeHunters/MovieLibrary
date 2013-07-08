@@ -5,23 +5,42 @@ import gr.codehunters.MovieLibrary.model.UserEntity;
 import gr.codehunters.MovieLibrary.model.db.users.AddressEntityDBImpl;
 import gr.codehunters.MovieLibrary.model.db.users.SecurityRoleEntityDBImpl;
 import gr.codehunters.MovieLibrary.model.db.users.UserEntityDBImpl;
+import gr.codehunters.MovieLibrary.validator.ContentMatch;
+import gr.codehunters.MovieLibrary.validator.PasswordMatch;
+import gr.codehunters.MovieLibrary.validator.UniqueKey;
 import org.springframework.security.authentication.encoding.Md5PasswordEncoder;
 import org.springframework.security.authentication.encoding.PasswordEncoder;
 
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
+import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 
-public class UserEntityDTOImpl implements UserEntity<Long, String, UserEntityDBImpl, UserEntityDTOImpl, AddressEntityDTOImpl, SecurityRoleEntityDTOImpl> {
+@UniqueKey(columnNames={"userName"},objectIdentifierName ="user_id", clazzName = UserEntityDBImpl.class,message = "This user already exists")
+@ContentMatch(fields = {"password","password_verify"},message = "Password fields do not match")
+public class UserEntityDTOImpl implements UserEntity<Long, String, UserEntityDBImpl, UserEntityDTOImpl, AddressEntityDTOImpl, SecurityRoleEntityDTOImpl>,Serializable {
   private Long user_id;
+  @NotNull(message = "User first name cannot be empty")
+  @Size(min = 1,message = "User first name cannot be less than 1 character")
   private String first_name;
+  @NotNull(message = "User last name cannot be empty")
+  @Size(min = 1,message = "User last name cannot be less than 1 character")
   private String last_name;
+  @NotNull(message = "User name cannot be empty")
+  @Size(min = 3,message = "User name cannot be less than 3 characters")
   private String userName;
   private String gender;
   private String aboutYou;
+  @Pattern(regexp = "(((?=.*\\d)((?=.*[a-z])|(?=.*[A-Z]))(?=.*[@#$%!]).{6,20})|PREDEFINED)",message = "User password is too weak")
   private String password;
+  private String password_verify;
   private boolean isActive;
   private boolean alertsEnabled;
   private Set<AddressEntityDTOImpl> userAddress = new HashSet<AddressEntityDTOImpl>(0);
+  @NotNull(message = "User must have at least one role assigned")
+  @Size(min = 1,message = "User must have at least one role assigned")
   private Set<SecurityRoleEntityDTOImpl> userSecurityRoleEntity = new HashSet<SecurityRoleEntityDTOImpl>(0);
 
   public UserEntityDTOImpl(UserEntityDBImpl userEntityDB) {
@@ -31,7 +50,6 @@ public class UserEntityDTOImpl implements UserEntity<Long, String, UserEntityDBI
     this.userName = userEntityDB.getUserName();
     this.gender = userEntityDB.getGender();
     this.aboutYou = userEntityDB.getAboutYou();
-    this.password = userEntityDB.getPassword();
     this.isActive = userEntityDB.isActive();
     this.alertsEnabled = userEntityDB.isAlertsEnabled();
     for (AddressEntityDBImpl userAddressEntityDB : userEntityDB.getUserAddress()) {
@@ -176,6 +194,13 @@ public class UserEntityDTOImpl implements UserEntity<Long, String, UserEntityDBI
     this.aboutYou = aboutYou;
   }
 
+  public String getPassword_verify() {
+    return password_verify;
+  }
+
+  public void setPassword_verify(String password_verify) {
+    this.password_verify = password_verify;
+  }
 
   @Override
   public UserEntityDBImpl createImp() {
@@ -190,7 +215,6 @@ public class UserEntityDTOImpl implements UserEntity<Long, String, UserEntityDBI
     this.userName = userEntityDB.getUserName();
     this.gender = userEntityDB.getGender();
     this.aboutYou = userEntityDB.getAboutYou();
-    this.password = userEntityDB.getPassword();
     this.isActive = userEntityDB.isActive();
     this.alertsEnabled = userEntityDB.isAlertsEnabled();
     userAddress.clear();

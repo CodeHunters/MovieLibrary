@@ -15,8 +15,6 @@ import javax.persistence.Table;
 
 import gr.codehunters.MovieLibrary.exceptions.PasswordException;
 import gr.codehunters.MovieLibrary.model.UserEntity;
-import gr.codehunters.MovieLibrary.model.dto.users.AddressEntityDTOImpl;
-import gr.codehunters.MovieLibrary.model.dto.users.SecurityRoleEntityDTOImpl;
 import gr.codehunters.MovieLibrary.model.dto.users.UserEntityDTOImpl;
 import org.springframework.security.authentication.encoding.Md5PasswordEncoder;
 import org.springframework.security.authentication.encoding.PasswordEncoder;
@@ -32,7 +30,7 @@ public class UserEntityDBImpl implements UserEntity<Long,String,UserEntityDTOImp
 	private String first_name;
 	@Column(name = "family_name")
 	private String last_name;
-	@Column(name = "userName")
+	@Column(name = "userName", unique = true)
 	private String userName;
 	@Column(name = "gender")
 	private String gender;	
@@ -47,7 +45,6 @@ public class UserEntityDBImpl implements UserEntity<Long,String,UserEntityDTOImp
 	@ManyToMany(cascade = CascadeType.ALL, fetch=FetchType.EAGER)
 	@JoinTable(name = "user_address", joinColumns = { @JoinColumn(name = "user_id") }, inverseJoinColumns = { @JoinColumn(name = "address_id") })
 	private Set<AddressEntityDBImpl> userAddress = new HashSet<AddressEntityDBImpl>(0);
-	/*******************************************************************************/
 	@ManyToMany(cascade = {CascadeType.REFRESH,CascadeType.MERGE,CascadeType.DETACH}, fetch=FetchType.EAGER)
 	@JoinTable(name = "user_security_role", joinColumns = { @JoinColumn(name = "user_id") }, inverseJoinColumns = { @JoinColumn(name = "security_role_id") })
 	private Set<SecurityRoleEntityDBImpl> userSecurityRoleEntity = new HashSet<SecurityRoleEntityDBImpl>(0);
@@ -74,7 +71,8 @@ public class UserEntityDBImpl implements UserEntity<Long,String,UserEntityDTOImp
  	}
 
 	
-	public UserEntityDBImpl() {
+	@SuppressWarnings("UnusedDeclaration")
+  public UserEntityDBImpl() {
 		super();
 	}
 
@@ -174,8 +172,7 @@ public class UserEntityDBImpl implements UserEntity<Long,String,UserEntityDTOImp
 
   private String encrypt(String password) {
     PasswordEncoder encoder = new Md5PasswordEncoder();
-    String hashedPass = encoder.encodePassword(password, null);
-    return hashedPass;
+    return encoder.encodePassword(password, null);
   }
 
 	public Long getUser_id() {
@@ -217,6 +214,9 @@ public class UserEntityDBImpl implements UserEntity<Long,String,UserEntityDTOImp
    	this.aboutYou=userEntityDTO.getAboutYou();
    	this.isActive=userEntityDTO.isActive();
    	this.alertsEnabled=userEntityDTO.isAlertsEnabled();
+    if (userEntityDTO.getPassword()!=null){
+      this.password=encrypt(userEntityDTO.getPassword());
+    }
     return this;
   }
 }

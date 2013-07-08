@@ -6,11 +6,14 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
+
+import javax.validation.Valid;
 
 @Controller
 public class MovieController {
@@ -19,24 +22,28 @@ public class MovieController {
 
 	@Autowired
   MoviesServiceImpl moviesService;
-	
-	@ModelAttribute("movies")
-	public MovieEntityDTOImpl init(@PathVariable String id) {
-		return moviesService.findEntity(id);
-	}
+
 	
 	@RequestMapping(value="/movies/movie/{id}", method=RequestMethod.GET)
-	public ModelAndView view(ModelAndView mv, @ModelAttribute("entity") MovieEntityDTOImpl entity) {
-		mv.addObject("entity", entity);
-		mv.setViewName("entity_detail");
-		logger.info("requesting /myentity");
+	public ModelAndView view(ModelAndView mv, @ModelAttribute("entity") MovieEntityDTOImpl movie) {
+		mv.addObject("movie", movie);
+		mv.setViewName("movie_detail");
 		return mv;
 	}
 
-	@RequestMapping(value="/movies/movie/{id}", method=RequestMethod.POST)
-	public String update(ModelAndView mv, @ModelAttribute("entity") MovieEntityDTOImpl entity) {
-	    	logger.info("updating /myentity");
-		return "redirect:/movies/movie/"+moviesService.save(entity).getId();
-	}
+  @RequestMapping(value = "/movies/movie/{id}", method = RequestMethod.POST)
+  public ModelAndView update(ModelAndView mv, @ModelAttribute("movie") @Valid MovieEntityDTOImpl movie, BindingResult result) {
+    logger.info("updating /myentity");
+    if (result.hasErrors()) {
+      mv.addObject("movie", movie);
+      mv.setViewName("movie_detail");
+    } else {
+      moviesService.save(movie);
+      mv=new ModelAndView();
+      mv.setViewName("movie_detail");
+      mv.addObject("message", "Successfully saved movie: " + movie.getName());
+    }
+    return mv;
+  }
 }
 

@@ -34,7 +34,7 @@
                 <td>
                 <a href="${pageContext.request.contextPath}/users/user/edit?id=${user.user_id}">Edit</a><br>
                 <a href="${pageContext.request.contextPath}/users/user/address/edit?id=${user.user_id}">Edit Address</a><br>
-                <a href="${pageContext.request.contextPath}/users/user/role/edit?id=${user.user_id}">Edit Roles</a><br>
+                <a href="${pageContext.request.contextPath}/users/user/password/change?id=${user.user_id}">Change Password</a><br>
                 <a href="${pageContext.request.contextPath}/users/user/details?id=${user.user_id}">View</a><br>
                 <a href="${pageContext.request.contextPath}/users/user/delete?id=${user.user_id}">Delete</a><br>
                 </td>

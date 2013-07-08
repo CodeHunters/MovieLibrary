@@ -7,13 +7,16 @@
 
 	<jsp:attribute name="breadcrumb"><a href="..">Home</a> / <a href="./new">MyEntity</a> / ${entity.name}</jsp:attribute>
 	<jsp:body>
-		<form:form commandName="entity">
+		<c:if test="${not empty message}">
+		<div class="message green">${message}</div>
+		</c:if>
+		<form:form commandName="movie">
 		<table>
 			<tr>
 				<td>Name:</td><td><form:input size="40" path="name"/></td>
+				<td><form:errors path="name" cssClass="error"/></td>
 			</tr>
 		</table>
-		<p/>
 		<input type="submit" value="Save"/>
 		</form:form>
 	</jsp:body>

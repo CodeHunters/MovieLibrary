@@ -2,9 +2,12 @@ package gr.codehunters.MovieLibrary.service;
 
 import gr.codehunters.MovieLibrary.dao.UserDAO;
 import gr.codehunters.MovieLibrary.model.db.users.UserEntityDBImpl;
+import gr.codehunters.MovieLibrary.model.dto.users.PasswordEntityDTO;
 import gr.codehunters.MovieLibrary.model.dto.users.UserEntityDTOImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
+import org.springframework.security.authentication.encoding.Md5PasswordEncoder;
+import org.springframework.security.authentication.encoding.PasswordEncoder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -23,6 +26,8 @@ public class UserDetailsServiceImpl implements UserService,UserDetailsService {
 	private Assembler assembler;
   @Autowired
   private RolesService rolesService;
+  private static PasswordEncoder encoder = new Md5PasswordEncoder();
+
 
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException, DataAccessException {
 		UserEntityDBImpl userEntity = userDao.findByUserName(username);
@@ -81,5 +86,27 @@ public class UserDetailsServiceImpl implements UserService,UserDetailsService {
     genderList.put("Male", "Male");
     genderList.put("Female", "Female");
     return genderList;
+  }
+
+  public PasswordEntityDTO getPasswordEntityrByUserId(long id) {
+    UserEntityDTOImpl userEntityDTO=getUserById(id);
+    return new PasswordEntityDTO(userEntityDTO.getId(),userEntityDTO.getUserName());
+  }
+
+  @Override
+  public boolean checkUserPassword(Long id,String password) {
+    return userDao.findById(id).getPassword().compareTo(encrypt(password))==0;
+  }
+
+  public PasswordEntityDTO save(PasswordEntityDTO passwordEntity) {
+    UserEntityDTOImpl userEntityDTO=getUserById(passwordEntity.getId());
+    userEntityDTO.setPassword(passwordEntity.getPassword());
+    userEntityDTO.setPassword_verify(passwordEntity.getPassword());
+    save(userEntityDTO);
+    return passwordEntity;
+  }
+
+  private String encrypt(String password) {
+    return encoder.encodePassword(password, null);
   }
 }

@@ -60,28 +60,32 @@ public class RolesServiceImpl implements RolesService {
 
   @Override
   public List<SecurityRoleEntityDBImpl> loadRoles(Set<SecurityRoleEntityDTOImpl> userSecurityRoleEntity) {
-    List<SecurityRoleEntityDBImpl> securityRoleEntityDBs=new ArrayList<SecurityRoleEntityDBImpl>();
-    List<Long> securityRoleEntityIDs=new ArrayList<Long>();
-    for (SecurityRoleEntityDTOImpl securityRoleEntityDTO : userSecurityRoleEntity) {
-      securityRoleEntityIDs.add(securityRoleEntityDTO.getId());
+    if (userSecurityRoleEntity == null) {
+      return new ArrayList<SecurityRoleEntityDBImpl>();
+    } else {
+      List<SecurityRoleEntityDBImpl> securityRoleEntityDBs = new ArrayList<SecurityRoleEntityDBImpl>();
+      List<Long> securityRoleEntityIDs = new ArrayList<Long>();
+      for (SecurityRoleEntityDTOImpl securityRoleEntityDTO : userSecurityRoleEntity) {
+        securityRoleEntityIDs.add(securityRoleEntityDTO.getId());
+      }
+      securityRoleEntityDBs.addAll(securityRolesDAO.findRoleById(securityRoleEntityIDs.toArray(new Long[]{0l})));
+      return securityRoleEntityDBs;
     }
-    securityRoleEntityDBs.addAll(securityRolesDAO.findRoleById(securityRoleEntityIDs.toArray(new Long[]{0l})));
-    return securityRoleEntityDBs;
   }
 
 
-  public List<Pair<String,Boolean>> addRoleList(UserEntityDTOImpl user) {
-    List<Pair<String,Boolean>> roles=new ArrayList<Pair<String, Boolean>>();
-    Set<SecurityRoleEntityDTOImpl> userRoles=user.getUserSecurityRoleEntity();
+  public List<Pair<String, Boolean>> addRoleList(UserEntityDTOImpl user) {
+    List<Pair<String, Boolean>> roles = new ArrayList<Pair<String, Boolean>>();
+    Set<SecurityRoleEntityDTOImpl> userRoles = user.getUserSecurityRoleEntity();
     for (SecurityRoleEntityDTOImpl role : listRoles()) {
-      roles.add(new Pair<String, Boolean>(role.getRoleName(),hasRole(userRoles,role.getRoleName())));
+      roles.add(new Pair<String, Boolean>(role.getRoleName(), hasRole(userRoles, role.getRoleName())));
     }
     return roles;
   }
 
-  private boolean hasRole(Set<SecurityRoleEntityDTOImpl> userRoles,String role){
+  private boolean hasRole(Set<SecurityRoleEntityDTOImpl> userRoles, String role) {
     for (SecurityRoleEntityDTOImpl userRole : userRoles) {
-      if (userRole.getRoleName().compareTo(role)==0) return true;
+      if (userRole.getRoleName().compareTo(role) == 0) return true;
     }
     return false;
   }
