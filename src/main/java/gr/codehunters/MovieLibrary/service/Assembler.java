@@ -1,12 +1,11 @@
 package gr.codehunters.MovieLibrary.service;
 
-import gr.codehunters.MovieLibrary.model.users.SecurityRoleEntityDBImpl;
-import gr.codehunters.MovieLibrary.model.users.UserEntityDBImpl;
+import gr.codehunters.MovieLibrary.model.db.users.SecurityRoleEntityDBImpl;
+import gr.codehunters.MovieLibrary.model.db.users.UserEntityDBImpl;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.GrantedAuthorityImpl;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.Collection;

@@ -1,6 +1,6 @@
 package gr.codehunters.MovieLibrary.controller;
 
-import gr.codehunters.MovieLibrary.model.movies.MovieEntityDBImpl;
+import gr.codehunters.MovieLibrary.model.dto.movies.MovieEntityDTOImpl;
 import gr.codehunters.MovieLibrary.service.MoviesServiceImpl;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -21,12 +21,12 @@ public class MovieController {
   MoviesServiceImpl moviesService;
 	
 	@ModelAttribute("movies")
-	public MovieEntityDBImpl init(@PathVariable String id) {
+	public MovieEntityDTOImpl init(@PathVariable String id) {
 		return moviesService.findEntity(id);
 	}
 	
 	@RequestMapping(value="/movies/movie/{id}", method=RequestMethod.GET)
-	public ModelAndView view(ModelAndView mv, @ModelAttribute("entity") MovieEntityDBImpl entity) {
+	public ModelAndView view(ModelAndView mv, @ModelAttribute("entity") MovieEntityDTOImpl entity) {
 		mv.addObject("entity", entity);
 		mv.setViewName("entity_detail");
 		logger.info("requesting /myentity");
@@ -34,7 +34,7 @@ public class MovieController {
 	}
 
 	@RequestMapping(value="/movies/movie/{id}", method=RequestMethod.POST)
-	public String update(ModelAndView mv, @ModelAttribute("entity") MovieEntityDBImpl entity) {
+	public String update(ModelAndView mv, @ModelAttribute("entity") MovieEntityDTOImpl entity) {
 	    	logger.info("updating /myentity");
 		return "redirect:/movies/movie/"+moviesService.save(entity).getId();
 	}

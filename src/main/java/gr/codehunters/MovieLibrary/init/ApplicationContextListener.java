@@ -2,8 +2,8 @@ package gr.codehunters.MovieLibrary.init;
 
 import gr.codehunters.MovieLibrary.exceptions.PasswordException;
 import gr.codehunters.MovieLibrary.factories.SecurityRoleFactory;
-import gr.codehunters.MovieLibrary.model.users.SecurityRoleEntityDBImpl;
-import gr.codehunters.MovieLibrary.model.users.UserEntityDBImpl;
+import gr.codehunters.MovieLibrary.model.db.users.SecurityRoleEntityDBImpl;
+import gr.codehunters.MovieLibrary.model.db.users.UserEntityDBImpl;
 import gr.codehunters.MovieLibrary.dao.SecurityRolesDAO;
 import gr.codehunters.MovieLibrary.dao.UserDAO;
 import org.slf4j.Logger;

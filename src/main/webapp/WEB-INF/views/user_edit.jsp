@@ -31,9 +31,6 @@
 				<td>About You:</td><td><form:textarea path="aboutYou" rows="5" cols="30" /></td>
 			</tr>
 			<tr>
-				<td>Password:</td><td><form:password path="password"/></td>
-			</tr>
-			<tr>
 				<td>Active:</td><td><form:checkbox path="active" /></td>
 			</tr>
 			<tr>
@@ -43,7 +40,16 @@
 				<td>Roles:</td>
 				<td>
                     <form:select multiple="true" path="userSecurityRoleEntity">
-                        <form:options items="${rolesOptionList}" itemValue="roleName" itemLabel="roleName"/>
+                        <c:forEach varStatus="loop" items="${rolesOptionList}" var="role">
+							<c:choose>
+								<c:when test="${role.second}">
+										 <form:option selected="selected" value="${role.first}" label="${role.first}"></form:option>
+									 </c:when>
+									 <c:otherwise>
+										  <form:option value="${role.first}" label="${role.first}"></form:option>
+									 </c:otherwise>
+							</c:choose>
+					   </c:forEach>
                     </form:select>
 				</td>
 			</tr>

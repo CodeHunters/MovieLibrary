@@ -4,7 +4,7 @@ import gr.codehunters.MovieLibrary.dao.core.Create;
 import gr.codehunters.MovieLibrary.dao.core.Delete;
 import gr.codehunters.MovieLibrary.dao.core.Find;
 import gr.codehunters.MovieLibrary.dao.core.Update;
-import gr.codehunters.MovieLibrary.model.movies.MovieEntityDBImpl;
+import gr.codehunters.MovieLibrary.model.db.movies.MovieEntityDBImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -33,7 +33,7 @@ public class MoviesDAOImpl extends CustomHibernateDaoSupport implements MoviesDA
 
   @Override
   public void save(MovieEntityDBImpl myEntity) {
-    if (findById(myEntity.getId())==null){
+    if (myEntity.getId()==null || findById(myEntity.getId())==null){
     create.execute(myEntity);
     }else {
       update.execute(myEntity);

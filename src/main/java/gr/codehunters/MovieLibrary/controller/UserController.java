@@ -1,6 +1,7 @@
 package gr.codehunters.MovieLibrary.controller;
 
-import gr.codehunters.MovieLibrary.model.users.UserEntityDBImpl;
+import gr.codehunters.MovieLibrary.model.dto.users.SecurityRoleEntityDTOImpl;
+import gr.codehunters.MovieLibrary.model.dto.users.UserEntityDTOImpl;
 import gr.codehunters.MovieLibrary.service.RolesServiceImpl;
 import gr.codehunters.MovieLibrary.service.UserDetailsServiceImpl;
 import org.slf4j.Logger;
@@ -15,11 +16,10 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.util.LinkedHashMap;
-import java.util.Map;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Set;
 
 @Controller
@@ -36,9 +36,9 @@ public class UserController {
     ModelAndView modelAndView = new ModelAndView();
     String id = request.getParameter("id");
     String name = request.getParameter("name");
-    UserEntityDBImpl user = null;
+    UserEntityDTOImpl user = null;
     if (id != null && id.length() > 0) {
-      user = userDetailsService.getUserById(Integer.parseInt(id));
+      user = userDetailsService.getUserById(Long.parseLong(id));
     } else if (name != null && name.length() > 0) {
       user = userDetailsService.getUserByUsername(name);
     }
@@ -48,52 +48,108 @@ public class UserController {
     return modelAndView;
   }
 
-  @RequestMapping(value = "/users/user/add", method = RequestMethod.GET)
+  @RequestMapping(value = "/users/user/commit", method = RequestMethod.GET)
   @PreAuthorize("hasRole('ADMINISTRATOR')")
-  public ModelAndView view(ModelAndView mv, @ModelAttribute("user") UserEntityDBImpl user) {
+  public ModelAndView edit(final HttpServletRequest request, ModelAndView mv, @ModelAttribute("user") UserEntityDTOImpl user) {
+    String id = request.getParameter("id");
+    if (id!=null && id.length()>0){
+       user=userDetailsService.getUserById(Long.parseLong(id));
+    }
     mv.addObject("user", user);
-    AddGenderList(mv);
+    mv.addObject("genderList", userDetailsService.getGenderList());
     mv.addObject("rolesOptionList", rolesService.listRoles());
     mv.setViewName("user_add");
     logger.info("requesting/new user");
     return mv;
   }
 
-  @RequestMapping(value = "/users/user/add", method = RequestMethod.POST)
+  @RequestMapping(value = {"users/user/edit"}, method = RequestMethod.GET)
   @PreAuthorize("hasRole('ADMINISTRATOR')")
-  public String update(ModelAndView mv, @ModelAttribute("user") UserEntityDBImpl user) {
+  public ModelAndView edit(final HttpServletRequest request, ModelAndView mv) {
+    UserEntityDTOImpl user;
+    String id = request.getParameter("id");
+    if (id!=null && id.length()>0){
+       user=userDetailsService.getUserById(Long.parseLong(id));
+    }else {
+      user=new UserEntityDTOImpl();
+      user=userDetailsService.save(user);
+    }
+    mv.addObject("user", user);
+    mv.addObject("genderList", userDetailsService.getGenderList());
+    mv.addObject("rolesOptionList",rolesService.addRoleList(user));
+    mv.setViewName("user_edit");
+    logger.info("requesting/new user");
+    return mv;
+  }
+
+  @RequestMapping(value = {"/users/user/commit","users/user/edit"}, method = RequestMethod.POST)
+  @PreAuthorize("hasRole('ADMINISTRATOR')")
+  public String commit(ModelAndView mv, @ModelAttribute("user") UserEntityDTOImpl user) {
     logger.info("updating /user");
     return "redirect:/users/user/details?id=" + userDetailsService.save(user).getId();
   }
 
-  private void AddGenderList(ModelAndView mv) {
-    Map<String, String> genderList = new LinkedHashMap<String, String>();
-    genderList.put("Male", "Male");
-    genderList.put("Female", "Female");
-    mv.addObject("genderList", genderList);
+  /**
+   * List users action
+   * @param mv model/view object
+   * @return mv model/view object
+   */
+  @RequestMapping(value = "/users", method = RequestMethod.GET)
+  @PreAuthorize("hasRole('ADMINISTRATOR')")
+  public ModelAndView viewUsers(ModelAndView mv) {
+
+    mv.addObject("users", userDetailsService.loadUsers());
+    mv.setViewName("users_table");
+    logger.info("requesting/users");
+    return mv;
   }
 
+  /**
+   * User Delete action
+   * @param request  request object
+   * @return redirect view
+   */
+  @RequestMapping(value = "/users/user/delete")
+  @PreAuthorize("hasRole('ADMINISTRATOR')")
+  public String deleteUser(final HttpServletRequest request) {
+    String id = request.getParameter("id");
+    userDetailsService.deleteUserById(Long.parseLong(id));
+    logger.info("requesting/delete user:"+id);
+    return "redirect:/users";
+  }
+
+
+  /**
+   * Security Role binder to allow multi select combo box editor functionality on user edit/add pages
+   * @param binder web data binder
+   */
   @InitBinder
   protected void initBinder(WebDataBinder binder) {
     binder.registerCustomEditor(Set.class, "userSecurityRoleEntity", new CustomCollectionEditor(Set.class) {
       @Override
       protected Object convertElement(Object element) {
-        Long id = null;
-
-        if (element instanceof String && !((String) element).equals("")) {
+        List<Long> id = new ArrayList<Long>();
+        List<String> roleName = new ArrayList<String>();
+        List<SecurityRoleEntityDTOImpl> roles=new ArrayList<SecurityRoleEntityDTOImpl>();
+        if (element instanceof String && !(element).equals("")) {
           //From the JSP 'element' will be a String
-          try {
-            id = Long.parseLong((String) element);
-          } catch (NumberFormatException e) {
-            System.out.println("Element was " + ((String) element));
-            e.printStackTrace();
-          }
+            String[] elements=((String) element).split(",");
+            for (String elem : elements) {
+              try {
+                id.add(Long.parseLong(elem));
+              }catch (Exception ex){
+                roleName.add(elem);
+              }
+            }
         } else if (element instanceof Long) {
           //From the database 'element' will be a Long
-          id = (Long) element;
+          id.add((Long)element);
+        }else if (element instanceof SecurityRoleEntityDTOImpl){
+          roles.add((SecurityRoleEntityDTOImpl)element);
         }
-
-        return id != null ? rolesService.loadRoleById(id) : null;
+        roles.addAll(rolesService.loadRoleById(id.toArray(new Long[id.size()])));
+        roles.addAll(rolesService.loadRoleByName(roleName.toArray(new String[roleName.size()])));
+        return roles;
       }
     });
   }

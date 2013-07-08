@@ -2,7 +2,7 @@ package gr.codehunters.MovieLibrary.dao;
 
 import java.util.Set;
 
-import gr.codehunters.MovieLibrary.model.users.UserEntityDBImpl;
+import gr.codehunters.MovieLibrary.model.db.users.UserEntityDBImpl;
 
 public interface UserDAO {
 	void save(UserEntityDBImpl user);
@@ -12,5 +12,6 @@ public interface UserDAO {
   Set<UserEntityDBImpl> listUser(Integer firstIndex, Integer size, String shortingColumn, Boolean asc);
   Set<UserEntityDBImpl> listUser();
   long countUsers();
-  UserEntityDBImpl findById(int id);
+  UserEntityDBImpl findById(Long id);
+  void deleteUserById(Long id);
 }

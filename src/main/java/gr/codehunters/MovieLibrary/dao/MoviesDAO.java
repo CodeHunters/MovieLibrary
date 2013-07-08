@@ -1,6 +1,6 @@
 package gr.codehunters.MovieLibrary.dao;
 
-import gr.codehunters.MovieLibrary.model.movies.MovieEntityDBImpl;
+import gr.codehunters.MovieLibrary.model.db.movies.MovieEntityDBImpl;
 
 import java.util.Set;
 

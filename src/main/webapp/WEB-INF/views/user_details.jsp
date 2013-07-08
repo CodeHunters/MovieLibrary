@@ -1,7 +1,8 @@
 <%@ taglib prefix="core" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="tags" tagdir="/WEB-INF/tags" %>
-<%@ page session="false" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <tags:template>
 	<jsp:attribute name="breadcrumb"><a href="/home">Home</a> / <a href="./new">User</a> /${user.userName}</jsp:attribute>
 	<jsp:body>
@@ -31,6 +32,25 @@
                 <td>About:</td>
                 <td><core:out value="${user.aboutYou}"/></td>
                 </tr>
+
+                 <tr><td colspan="2">
+                 <table border="1px" cellpadding="0" cellspacing="0">
+                            <thead>
+                            <tr>
+                            <th width="10%">Id</th>
+                            <th width="15%">Role Name</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                             <c:forEach var="role" items="${user.userSecurityRoleEntity}" varStatus="status">
+                            <tr>
+                                <td>${role.security_role_id}</td>
+                                <td>${role.roleName}</td>
+                            </tr>
+                            </c:forEach>
+                            </tbody>
+                 </table>
+                </td></tr>
             </table>
         </center>
 	</jsp:body>

@@ -1,6 +1,6 @@
 package gr.codehunters.MovieLibrary.factories;
 
-import gr.codehunters.MovieLibrary.model.users.SecurityRoleEntityDBImpl;
+import gr.codehunters.MovieLibrary.model.db.users.SecurityRoleEntityDBImpl;
 
 import java.util.ArrayList;
 import java.util.List;

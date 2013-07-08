@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
-import gr.codehunters.MovieLibrary.model.users.UserEntityDBImpl;
+import gr.codehunters.MovieLibrary.model.db.users.UserEntityDBImpl;
 import gr.codehunters.MovieLibrary.dao.core.Create;
 import gr.codehunters.MovieLibrary.dao.core.Delete;
 import gr.codehunters.MovieLibrary.dao.core.Find;
@@ -62,7 +62,7 @@ public class UserDAOImpl extends CustomHibernateDaoSupport implements UserDAO {
 
   @SuppressWarnings({"rawtypes", "unchecked", "UnnecessaryLocalVariable"})
  	@Override
-  public UserEntityDBImpl findById(int id){
+  public UserEntityDBImpl findById(Long id){
  		List find = getHibernateTemplate().findByNamedParam("select u from UserEntityDBImpl u where u.user_id = :uid", "uid", id);
  		List<UserEntityDBImpl> users = find;
  		if (users!=null && users.size()>0)
@@ -72,6 +72,14 @@ public class UserDAOImpl extends CustomHibernateDaoSupport implements UserDAO {
  			return null;
  		}
  	}
+
+  @SuppressWarnings({"rawtypes", "unchecked", "UnnecessaryLocalVariable"})
+ 	@Override
+  public void deleteUserById(Long id){
+    getHibernateTemplate().delete(getHibernateTemplate().get(UserEntityDBImpl.class,id));
+ 	}
+
+
 	
   @SuppressWarnings({ "rawtypes", "unchecked" })
 		@Override
