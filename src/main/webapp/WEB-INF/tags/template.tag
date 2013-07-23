@@ -33,6 +33,7 @@
 	<div id="content">
 		<jsp:doBody/>
 	</div>
+	<div><a href="<c:url value="/j_spring_security_logout" />" > Logout</a></div>
 	<div id="footer">Code hunters 2013. All rights reserved</div>
 </body>
 </html>

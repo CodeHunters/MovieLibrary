@@ -1,9 +1,12 @@
 package gr.codehunters.MovieLibrary.configuration;
 
 import gr.codehunters.MovieLibrary.exceptions.AbstractLocalizedException;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpStatus;
+import org.springframework.security.access.AccessDeniedException;
+import org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler;
 import org.springframework.web.servlet.HandlerExceptionResolver;
 import org.springframework.web.servlet.handler.HandlerExceptionResolverComposite;
 import org.springframework.web.servlet.handler.SimpleMappingExceptionResolver;
@@ -33,6 +36,7 @@ public class ErrorHandling {
     SimpleMappingExceptionResolver result = new SimpleMappingExceptionResolver();
     Properties p = new Properties();
     p.put(AbstractLocalizedException.class.getName(), "errors/error");
+    p.put(AccessDeniedException.class.getName(), "errors/403");
     result.setExceptionMappings(p);
     result.setDefaultErrorView("errors/defaultError");
     result.setDefaultStatusCode(HttpStatus.BAD_REQUEST.value());

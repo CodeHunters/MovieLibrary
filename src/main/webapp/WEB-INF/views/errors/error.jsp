@@ -5,7 +5,11 @@
 <tags:template>
     <jsp:body>
         <h1>Error</h1>
-        An error occurred while processing request with reason:<br/><br/>
-        ${exception.specialMsg}<br />
+        An error occurred while processing request with reason:
+        <br/>
+        ${exception.specialMsg}
+        <br />
+        Please try again later and contact system administrator.
+        <br />
     </jsp:body>
 </tags:template>

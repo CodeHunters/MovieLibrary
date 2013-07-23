@@ -69,7 +69,7 @@ public class UserController {
     UserEntityDTOImpl user=getUser(request,false);
     mv.addObject("user", user);
     mv.addObject("genderList", userService.getGenderList());
-    mv.addObject("rolesOptionList", rolesService.addRoleList(user));
+    mv.addObject("rolesOptionList", rolesService.listRoles());
     mv.setViewName("user_edit");
     return mv;
   }
@@ -83,7 +83,7 @@ public class UserController {
       mv.setViewName("user_edit");
       mv.addObject("user", user);
       mv.addObject("genderList", userService.getGenderList());
-      mv.addObject("rolesOptionList", rolesService.addRoleList(user));
+      mv.addObject("rolesOptionList", rolesService.listRoles());
       return mv;
     } else {
       logger.info("Saving user updated information");

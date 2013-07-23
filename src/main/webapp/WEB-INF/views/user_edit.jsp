@@ -44,20 +44,7 @@
 			</tr>
 			<tr>
 				<td>Roles:</td>
-				<td>
-                    <form:select multiple="true" path="userSecurityRoleEntity">
-                        <c:forEach varStatus="loop" items="${rolesOptionList}" var="role">
-							<c:choose>
-								<c:when test="${role.second}">
-										 <form:option selected="selected" value="${role.first}" label="${role.first}"></form:option>
-									 </c:when>
-									 <c:otherwise>
-										  <form:option value="${role.first}" label="${role.first}"></form:option>
-									 </c:otherwise>
-							</c:choose>
-					   </c:forEach>
-                    </form:select>
-				</td>
+				<td><form:select path="userSecurityRoleEntity" items="${rolesOptionList}" itemLabel="roleName" itemValue="security_role_id" multiple="true"/></td>
 				<td><form:errors path="userSecurityRoleEntity" cssClass="error"/></td>
 			</tr>
 		</table>

@@ -53,11 +53,7 @@
 			</tr>
 			<tr>
 				<td>Roles:</td>
-				<td>
-                    <form:select multiple="true" path="userSecurityRoleEntity">
-                        <form:options items="${rolesOptionList}" itemValue="roleName" itemLabel="roleName"/>
-                    </form:select>
-				</td>
+				<td><form:select path="userSecurityRoleEntity" items="${rolesOptionList}" itemLabel="roleName" itemValue="security_role_id" multiple="true"/></td>
 			    <td><form:errors path="userSecurityRoleEntity" cssClass="error"/></td>
 			</tr>
 		</table>

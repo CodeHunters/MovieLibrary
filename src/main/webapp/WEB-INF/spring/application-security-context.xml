@@ -1,15 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans:beans xmlns="http://www.springframework.org/schema/security"
-      xmlns:beans="http://www.springframework.org/schema/beans"
-      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-      xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
-               http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-3.1.xsd">
+  xmlns:beans="http://www.springframework.org/schema/beans"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+           http://www.springframework.org/schema/security
+           http://www.springframework.org/schema/security/spring-security-3.1.xsd">
 
     <global-method-security pre-post-annotations="enabled">
-        <expression-handler ref="expressionHandler"/>
+        <expression-handler ref="securityExpressionHandler"/>
     </global-method-security>
 
-    <beans:bean id="expressionHandler" class="org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler">
+    <beans:bean id="securityExpressionHandler" class="org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler">
         <beans:property name="permissionEvaluator" ref="permissionEvaluator"/>
     </beans:bean>
 
@@ -28,24 +30,31 @@
         </beans:property>
     </beans:bean>
 
-    <http pattern="/resources/**" security="none"/>
-    <http pattern="/login.jsp" security="none"/>
-    <http pattern="/403.jsp" security="none"/>
-    <http pattern="/logoutSuccess.jsp" security="none"/>
-    <http pattern="/forgotpassword*" security="none"/>
-    <http pattern="/static/**" security="none"/>
-    <http pattern="/css/**" security="none"/>
 
     <http use-expressions="true"  auto-config="true">
+        <intercept-url pattern="/login.jsp*" access="permitAll"/>
+        <intercept-url pattern="/resources/**" access="permitAll"/>
+        <intercept-url pattern="/403.jsp" access="permitAll"/>
+        <intercept-url pattern="/logoutSuccess.jsp" access="permitAll"/>
+        <intercept-url pattern="/forgotpassword*" access="permitAll"/>
+        <intercept-url pattern="/static/**" access="permitAll"/>
+        <intercept-url pattern="/css/**" access="permitAll"/>
         <intercept-url pattern="/" access="permitAll"/>
         <intercept-url pattern="/**" access="isAuthenticated()"/>
         <intercept-url pattern="/" access="isAuthenticated()"/>
         <remember-me/>
-        <form-login login-page="/login.jsp" authentication-failure-url="/login.jsp?login_error=1"/>
-        <logout logout-url="/logout.jsp" logout-success-url="/logoutSuccess.jsp"/>
+        <form-login login-page="/login.jsp" authentication-failure-url="/login.jsp?login_error=1" />
         <http-basic/>
         <access-denied-handler ref="accessDeniedHandler"/>
     </http>
+
+
+    <authentication-manager>
+        <authentication-provider user-service-ref="userService">
+            <password-encoder hash="md5"/>
+        </authentication-provider>
+    </authentication-manager>
+
     <beans:bean id="authenticationManager" class="org.springframework.security.authentication.ProviderManager">
         <beans:property name="providers">
             <beans:list>
@@ -53,12 +62,6 @@
             </beans:list>
         </beans:property>
     </beans:bean>
-
-    <authentication-manager>
-        <authentication-provider user-service-ref="userService">
-            <password-encoder hash="md5"/>
-        </authentication-provider>
-    </authentication-manager>
 
     <beans:bean id="daoAuthenticationProvider" class="org.springframework.security.authentication.dao.DaoAuthenticationProvider">
         <beans:property name="userDetailsService" ref="userService"/>

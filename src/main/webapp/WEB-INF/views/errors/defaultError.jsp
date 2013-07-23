@@ -6,7 +6,9 @@
 <tags:template>
     <jsp:body>
         <h1>Error</h1>
-        A general error occurred while processing request with reason:<br/><br/>
-        ${exception.specialMsg}<br />
+        A general error occurred while processing request.
+        <br/>
+        Please try again later and contact system administrator.
+        <br/>
     </jsp:body>
 </tags:template>

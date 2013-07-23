@@ -76,4 +76,23 @@ public class SecurityRoleEntityDTOImpl implements SecurityRoleEntity<Long,String
   public void setName(String name) {
     setRoleName(name);
   }
+
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) return true;
+    if (!(o instanceof SecurityRoleEntityDTOImpl)) return false;
+
+    SecurityRoleEntityDTOImpl that = (SecurityRoleEntityDTOImpl) o;
+
+    return !(personId != null ? !personId.equals(that.personId) : that.personId != null) && roleName.equals(that.roleName) && security_role_id.equals(that.security_role_id);
+
+  }
+
+  @Override
+  public int hashCode() {
+    int result = security_role_id.hashCode();
+    result = 31 * result + (personId != null ? personId.hashCode() : 0);
+    result = 31 * result + roleName.hashCode();
+    return result;
+  }
 }
