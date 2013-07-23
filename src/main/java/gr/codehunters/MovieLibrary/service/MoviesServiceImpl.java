@@ -9,7 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service("moviesService")
-public class MoviesServiceImpl {
+public class MoviesServiceImpl implements MoviesService {
 	
 	private static final Logger logger = LoggerFactory.getLogger(MoviesServiceImpl.class);
 	

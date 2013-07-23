@@ -1,6 +1,17 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ attribute name="breadcrumb" required="true" rtexprvalue="true"%>
+<%@ taglib prefix="utils" uri="/WEB-INF/tlds/utils.tld" %>
+<%@ taglib uri="http://www.springframework.org/security/tags" prefix="sec" %>
+
+<%@ attribute name="breadcrumb" required="false" rtexprvalue="true"%>
 <%@ attribute name="hidesearch" required="false" rtexprvalue="false"%>
+
+<utils:default var="breadcrumb">
+     <c:forEach items="${menuItems}" var="menuItem" varStatus="status">
+       <a href="${pageContext.request.contextPath}/${menuItem.url}">${menuItem.name}</a>
+	   <c:if test="${ ! status.last}" >/</c:if>
+     </c:forEach>
+</utils:default>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -9,8 +20,16 @@
 	<link href="${pageContext.request.contextPath}/resources/layout.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
-	<div id="header"><div id="app_title">MovieLibrary</div></div>
+
+    <sec:authorize access="hasRole('ROLE_ADMIN')">
+        This session will be visible to an admin only.<br/>
+        You are an Administrator.<br/>
+    </sec:authorize>
+
+
+	<div id="header"><div id="app_title">Movie Library</div></div>
 	<div id="navigation">${breadcrumb}</div>
+	<div id="userMenu">${userName}</div>
 	<div id="content">
 		<jsp:doBody/>
 	</div>

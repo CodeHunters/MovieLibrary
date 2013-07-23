@@ -16,8 +16,7 @@ import javax.persistence.Table;
 import gr.codehunters.MovieLibrary.exceptions.PasswordException;
 import gr.codehunters.MovieLibrary.model.UserEntity;
 import gr.codehunters.MovieLibrary.model.dto.users.UserEntityDTOImpl;
-import org.springframework.security.authentication.encoding.Md5PasswordEncoder;
-import org.springframework.security.authentication.encoding.PasswordEncoder;
+import gr.codehunters.MovieLibrary.util.PasswordUtils;
 
 @Entity
 @Table(name = "user")
@@ -56,7 +55,7 @@ public class UserEntityDBImpl implements UserEntity<Long,String,UserEntityDTOImp
     setFirst_name(userEntity.getFirst_name());
     setGender(userEntity.getGender());
     setLast_name(userEntity.getLast_name());
-    setPassword(userEntity.getPassword());
+    setPassword(PasswordUtils.encrypt(userEntity.getPassword()));
     setName(userEntity.getName());
   }
 
@@ -85,7 +84,7 @@ public class UserEntityDBImpl implements UserEntity<Long,String,UserEntityDTOImp
 		this.first_name = first_name;
 		this.last_name = last_name;
 		this.userName = userName;
-		this.setPassword(encrypt(password));
+		this.setPassword(PasswordUtils.encrypt(password));
 		this.isActive = true;
     if (password.compareTo(confirmPassword)!=0){
       throw new PasswordException();
@@ -170,10 +169,6 @@ public class UserEntityDBImpl implements UserEntity<Long,String,UserEntityDTOImp
 		this.password = password;
 	}
 
-  private String encrypt(String password) {
-    PasswordEncoder encoder = new Md5PasswordEncoder();
-    return encoder.encodePassword(password, null);
-  }
 
 	public Long getUser_id() {
 		return user_id;
@@ -215,7 +210,7 @@ public class UserEntityDBImpl implements UserEntity<Long,String,UserEntityDTOImp
    	this.isActive=userEntityDTO.isActive();
    	this.alertsEnabled=userEntityDTO.isAlertsEnabled();
     if (userEntityDTO.getPassword()!=null){
-      this.password=encrypt(userEntityDTO.getPassword());
+      this.password=PasswordUtils.encrypt(userEntityDTO.getPassword());
     }
     return this;
   }

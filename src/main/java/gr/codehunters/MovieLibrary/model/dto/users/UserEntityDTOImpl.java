@@ -5,11 +5,10 @@ import gr.codehunters.MovieLibrary.model.UserEntity;
 import gr.codehunters.MovieLibrary.model.db.users.AddressEntityDBImpl;
 import gr.codehunters.MovieLibrary.model.db.users.SecurityRoleEntityDBImpl;
 import gr.codehunters.MovieLibrary.model.db.users.UserEntityDBImpl;
+import gr.codehunters.MovieLibrary.util.PasswordUtils;
 import gr.codehunters.MovieLibrary.validator.ContentMatch;
-import gr.codehunters.MovieLibrary.validator.PasswordMatch;
 import gr.codehunters.MovieLibrary.validator.UniqueKey;
-import org.springframework.security.authentication.encoding.Md5PasswordEncoder;
-import org.springframework.security.authentication.encoding.PasswordEncoder;
+
 
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
@@ -82,7 +81,7 @@ public class UserEntityDTOImpl implements UserEntity<Long, String, UserEntityDBI
     this.first_name = first_name;
     this.last_name = last_name;
     this.userName = userName;
-    this.setPassword(encrypt(password));
+    this.setPassword(PasswordUtils.encrypt(password));
     this.isActive = true;
     if (password.compareTo(confirmPassword) != 0) {
       throw new PasswordException();
@@ -162,12 +161,6 @@ public class UserEntityDTOImpl implements UserEntity<Long, String, UserEntityDBI
 
   public void setPassword(String password) {
     this.password = password;
-  }
-
-  private String encrypt(String password) {
-    PasswordEncoder encoder = new Md5PasswordEncoder();
-    String hashedPass = encoder.encodePassword(password, null);
-    return hashedPass;
   }
 
   public Long getUser_id() {

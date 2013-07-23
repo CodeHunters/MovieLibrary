@@ -36,8 +36,7 @@ public class UniqueKeyValidator implements ConstraintValidator<UniqueKey, Serial
       session = sessionFactory.openSession();
       Criteria criteria = session.createCriteria(clazz);
       try {
-        for (int i = 0; i < uniqueIdentifierNames.length; i++) {
-          String propertyName = uniqueIdentifierNames[i];
+        for (String propertyName : uniqueIdentifierNames) {
           PropertyDescriptor desc = new PropertyDescriptor(propertyName, target.getClass());
           Method readMethod = desc.getReadMethod();
           Object propertyValue = readMethod.invoke(target);

@@ -1,7 +1,6 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix="tags" tagdir="/WEB-INF/tags" %>
 <tags:template>
-    <jsp:attribute name="breadcrumb">Home</jsp:attribute>
     <jsp:body>
         <h1>Welcome to movies library</h1>
         Manage your movies at an efficient way.

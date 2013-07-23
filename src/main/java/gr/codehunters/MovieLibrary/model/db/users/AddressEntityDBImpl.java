@@ -26,6 +26,9 @@ public class AddressEntityDBImpl implements AddressEntity<Long,AddressEntityDTOI
 	@Column(name = "postcode")
 	private String postCode;
 
+  public AddressEntityDBImpl() {
+  }
+
   public AddressEntityDBImpl(AddressEntityDTOImpl userAddress) {
     this.country=userAddress.getCountry();
     this.postCode=userAddress.getPostCode();

@@ -5,7 +5,6 @@
 
 <tags:template>
 
-	<jsp:attribute name="breadcrumb"><a href="..">Home</a> / <a href="./new">MyEntity</a> / ${entity.name}</jsp:attribute>
 	<jsp:body>
 		<c:if test="${not empty message}">
 		<div class="message green">${message}</div>

@@ -4,8 +4,6 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <tags:template>
-
-	<jsp:attribute name="breadcrumb"><a href="..">Home</a> / <a href="./new">MyEntity</a> / ${passwordEntity.name}</jsp:attribute>
 	<jsp:body>
 		<form:form commandName="passwordEntity">
 		<form:input type="hidden" name="name" path="name" />

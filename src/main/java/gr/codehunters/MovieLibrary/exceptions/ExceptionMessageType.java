@@ -4,8 +4,10 @@ import java.util.HashMap;
 import java.util.Map;
 
 public enum ExceptionMessageType {
+  NON_EXPECTED_EXCEPTION(0,"UNEXPECTED_EXCEPTION" , "Huston we have a problem"),
   PASSWORD_MISMATCH(1, "PASSWORD_MISMATCH", "Password Mismatch"),
-  PASSWORD_INVALID(2, "PASSWORD_INVALID", "Invalid Password");
+  PASSWORD_INVALID(2, "PASSWORD_INVALID", "Invalid Password"),
+  USER_NOT_FOUND(3,"USER_NOT_FOUND" , "User not found");
 
   int id;
   String localeId;

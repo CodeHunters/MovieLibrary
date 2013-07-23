@@ -4,7 +4,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <tags:template>
-	<jsp:attribute name="breadcrumb"><a href="/home">Home</a> / <a href="./new">User</a> /${user.userName}</jsp:attribute>
 	<jsp:body>
         <center>
             <h3>User Details.</h3><br>

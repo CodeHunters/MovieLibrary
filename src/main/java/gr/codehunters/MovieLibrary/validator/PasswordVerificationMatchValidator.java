@@ -1,5 +1,8 @@
 package gr.codehunters.MovieLibrary.validator;
 
+import gr.codehunters.MovieLibrary.controller.MovieController;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
 import javax.validation.ConstraintValidator;
@@ -13,6 +16,8 @@ import java.util.List;
 
 @Component
 public class PasswordVerificationMatchValidator implements ConstraintValidator<ContentMatch, Serializable> {
+  private static final Logger logger = LoggerFactory.getLogger(MovieController.class);
+
    String[] fields;
 
   @Override
@@ -30,7 +35,7 @@ public class PasswordVerificationMatchValidator implements ConstraintValidator<C
       Object propertyValue = readMethod.invoke(target);
       contentFieldValues.add(propertyValue);
       }catch (Exception ex){
-
+        logger.error("Error while checking if password is valid with reason",ex);
       }
     }
     boolean contentsMatch=true;

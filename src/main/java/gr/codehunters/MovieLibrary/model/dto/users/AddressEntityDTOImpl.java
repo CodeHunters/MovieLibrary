@@ -11,6 +11,9 @@ public class AddressEntityDTOImpl implements AddressEntity<Long,AddressEntityDBI
 	private String detailAddress;
 	private String postCode;
 
+  public AddressEntityDTOImpl() {
+  }
+
   public AddressEntityDTOImpl(AddressEntityDBImpl addressEntityDB) {
     this.setId(addressEntityDB.getId());
     this.setPersonId(addressEntityDB.getPersonId());
@@ -62,7 +65,7 @@ public class AddressEntityDTOImpl implements AddressEntity<Long,AddressEntityDBI
 
   @Override
   public AddressEntityDBImpl createImp() {
-    return null;
+    return new AddressEntityDBImpl(this);
   }
 
   @Override
