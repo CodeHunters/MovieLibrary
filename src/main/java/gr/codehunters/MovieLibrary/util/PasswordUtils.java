@@ -1,10 +1,3 @@
-/*
- *  Copyright 2013 ADVA Optical Networking SE. All rights reserved.
- *
- *  Owner: arongas
- *
- *  $Id: $
- */
 package gr.codehunters.MovieLibrary.util;
 import org.springframework.security.authentication.encoding.Md5PasswordEncoder;
 import org.springframework.security.authentication.encoding.PasswordEncoder;
