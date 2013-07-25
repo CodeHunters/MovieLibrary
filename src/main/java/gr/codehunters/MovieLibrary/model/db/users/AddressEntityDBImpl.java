@@ -16,9 +16,6 @@ public class AddressEntityDBImpl implements AddressEntity<Long,AddressEntityDTOI
 	@Column(name = "address_id")
   @GeneratedValue
 	private Long address_id;
-	@Column(name = "user_id")
-	private Long personId;
-	
 	@Column(name = "country")
 	private String country;
 	@Column(name = "detail_address")
@@ -33,7 +30,6 @@ public class AddressEntityDBImpl implements AddressEntity<Long,AddressEntityDTOI
     this.country=userAddress.getCountry();
     this.postCode=userAddress.getPostCode();
     this.detailAddress=userAddress.getDetailAddress();
-    this.setPersonId(personId);
   }
 
   public Long getId() {
@@ -46,20 +42,12 @@ public class AddressEntityDBImpl implements AddressEntity<Long,AddressEntityDTOI
   }
 
 
-	public long getAddress_id() {
+	public Long getAddress_id() {
 		return address_id;
 	}
 
-	public void setAddress_id(long address_id) {
+	public void setAddress_id(Long address_id) {
 		this.address_id = address_id;
-	}
-
-	public Long getPersonId() {
-		return personId;
-	}
-
-  public void setPersonId(Long personId) {
-		this.personId = personId;
 	}
 
 	public String getCountry() {

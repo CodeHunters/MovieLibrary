@@ -16,9 +16,7 @@ public class SecurityRoleEntityDBImpl implements SecurityRoleEntity<Long,String,
 	@Column(name = "security_role_id")
   @GeneratedValue
 	private Long security_role_id;
-	@Column(name = "user_id")
-	private Long personId;
-	
+
 	@Column(name="roleName")
 	String roleName;
 
@@ -37,16 +35,6 @@ public class SecurityRoleEntityDBImpl implements SecurityRoleEntity<Long,String,
   public void setId(Long id) {
     security_role_id=id;
   }
-
-  public Long getPersonId() {
-		return personId;
-	}
-
-  @Override
-  public void setPersonId(Long personId) {
-   this.personId=personId;
-  }
-
 
 	public String getRoleName() {
 		return roleName;
@@ -73,7 +61,6 @@ public class SecurityRoleEntityDBImpl implements SecurityRoleEntity<Long,String,
   @Override
   public SecurityRoleEntityDBImpl resynch(SecurityRoleEntityDTOImpl securityRoleEntityDTO) {
     this.setName(securityRoleEntityDTO.getName());
-    this.setPersonId(securityRoleEntityDTO.getPersonId());
     return this;
   }
 

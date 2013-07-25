@@ -121,6 +121,18 @@ public class UserController {
     return new ModelAndView("show_address", "addressList", addressEntityListDTO);
   }
 
+  @RequestMapping(value = "/users/user/address/delete")
+  @PreAuthorize("hasRole('ADMINISTRATOR') or hasPermission(#request, 'isCurrentUser')")
+  public String removeAddress(@ModelAttribute("addressList") AddressEntityListDTOImpl addressEntityListDTO,final HttpServletRequest request) throws UserNotFoundException {
+    logger.info("requesting /users/user/address/delete");
+    String index = request.getParameter("id");
+    if (index != null && index.length() > 0) {
+      addressEntityListDTO.getAddressEntityDTOs().remove(Integer.parseInt(index));
+    }
+    return "redirect:/users/user/address?id="+addressEntityListDTO.getId();
+  }
+
+
 
 
   @RequestMapping(value = "/users/user/add", method = RequestMethod.GET)

@@ -151,7 +151,6 @@ public class UserServiceImpl implements UserService, UserDetailsService {
 
   public AddressEntityListDTOImpl addNewAdress(AddressEntityListDTOImpl addressEntityListDTO) {
     AddressEntityDTOImpl addressEntityDTO = new AddressEntityDTOImpl();
-    addressEntityDTO.setPersonId(addressEntityListDTO.getId());
     addressEntityListDTO.getAddressEntityDTOs().add(addressEntityDTO);
     return addressEntityListDTO;
   }

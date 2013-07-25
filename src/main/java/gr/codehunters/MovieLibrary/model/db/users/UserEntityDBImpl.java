@@ -1,6 +1,8 @@
 package gr.codehunters.MovieLibrary.model.db.users;
 
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -15,6 +17,7 @@ import javax.persistence.Table;
 
 import gr.codehunters.MovieLibrary.exceptions.PasswordException;
 import gr.codehunters.MovieLibrary.model.UserEntity;
+import gr.codehunters.MovieLibrary.model.dto.users.AddressEntityDTOImpl;
 import gr.codehunters.MovieLibrary.model.dto.users.UserEntityDTOImpl;
 import gr.codehunters.MovieLibrary.util.PasswordUtils;
 
@@ -212,6 +215,53 @@ public class UserEntityDBImpl implements UserEntity<Long,String,UserEntityDTOImp
     if (userEntityDTO.getPassword()!=null){
       this.password=PasswordUtils.encrypt(userEntityDTO.getPassword());
     }
+    resynchAddress(userEntityDTO.getUserAddress());
+    resynchRoles();
     return this;
   }
+
+  private void resynchAddress(Set<AddressEntityDTOImpl> addressEntityDTOs){
+    for (AddressEntityDTOImpl addressEntityDTO : addressEntityDTOs) {
+      AddressEntityDBImpl addressEntityDB=findAddressById(addressEntityDTO.getId());
+      if (addressEntityDB!=null){
+        addressEntityDB.resynch(addressEntityDTO);
+      }else {
+        addressEntityDB=new AddressEntityDBImpl(addressEntityDTO);
+        userAddress.add(addressEntityDB);
+      }
+    }
+    List<AddressEntityDBImpl> addressEntitiesToRemove=new ArrayList<AddressEntityDBImpl>();
+    for (AddressEntityDBImpl userAddressEntity : userAddress) {
+      AddressEntityDTOImpl addressEntityDTO=findAddressDTOById(userAddressEntity.getId(),addressEntityDTOs);
+       if (addressEntityDTO==null && userAddressEntity.getId()!=null && userAddressEntity.getId()!=0){
+         addressEntitiesToRemove.add(userAddressEntity);
+       }
+    }
+    userAddress.removeAll(addressEntitiesToRemove);
+  }
+
+  private AddressEntityDBImpl findAddressById(Long id) {
+    if (id != null && id != 0) {
+      for (AddressEntityDBImpl userAddressEntity : userAddress) {
+        if (id.equals(userAddressEntity.getId())) return userAddressEntity;
+      }
+    }
+    return null;
+  }
+
+  private AddressEntityDTOImpl findAddressDTOById(Long id, Set<AddressEntityDTOImpl> addressEntityDTOs) {
+    if (id != null && id != 0) {
+      for (AddressEntityDTOImpl addressEntityDTO : addressEntityDTOs) {
+        if (addressEntityDTO.getId()!=null && addressEntityDTO.getId()>0 && addressEntityDTO.getId().equals(id)) {
+          return addressEntityDTO;
+        }
+      }
+    }
+    return null;
+  }
+
+  private void resynchRoles(){
+
+  }
+
 }

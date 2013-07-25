@@ -17,7 +17,7 @@ public class MoviesServiceImpl implements MoviesService {
   MoviesDAO moviesDAO;
 	
 	public MovieEntityDTOImpl findEntity(String id) {
-		if("new".equals(id)) {
+		if("new".equals(id) || id==null) {
 			return new MovieEntityDTOImpl();
 		} else {
 			return moviesDAO.findById(new Long(id)).createImp();

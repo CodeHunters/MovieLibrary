@@ -16,17 +16,18 @@
         </tr>
         <c:forEach items="${addressList.addressEntityDTOs}" var="address" varStatus="status">
             <tr>
-                <td align="center">${status.count}</td>
+                <td align="center">${status.count}
+                <input type="hidden" name="addressEntityDTOs[${status.index}].id" value="${address.id}"/>
+                </td>
                 <td><input name="addressEntityDTOs[${status.index}].country" value="${address.country}"/></td>
                 <td><input name="addressEntityDTOs[${status.index}].detailAddress" value="${address.detailAddress}"/></td>
                 <td><input name="addressEntityDTOs[${status.index}].postCode" value="${address.postCode}"/></td>
-                <td> <a href="${pageContext.request.contextPath}/users/user/address/delete?id=${user.user_id}&count=${status.count}">Delete</a><br></td>
             </tr>
         </c:forEach>
     </table>
     <br/>
     <input type="submit" name="action"  value="Save" />
-    <input type="submit" name="action"   value="Add" />
+    <input type="submit" name="action"  value="Add" />
     </form:form>
 		</jsp:body>
 </tags:template>

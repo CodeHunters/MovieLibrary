@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.annotation.PostConstruct;
+import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
 @Controller
@@ -30,16 +31,27 @@ public class MovieController {
   @PostConstruct
   public void init() {
     pageService.add(new Page("Add Movie","home","/movies/movie/new"));
+    pageService.add(new Page("Add Movie","home","/movies/movie"));
+    pageService.add(new Page("Add Movie","home","/movies"));
   }
 
-  @RequestMapping(value = "/movies/movie/{id}", method = RequestMethod.GET)
-  public ModelAndView view(ModelAndView mv, @ModelAttribute("entity") MovieEntityDTOImpl movie) {
+  @RequestMapping(value = "/movies/movie/new", method = RequestMethod.GET)
+  public ModelAndView view(ModelAndView mv) {
+   MovieEntityDTOImpl movie=new MovieEntityDTOImpl();
     mv.addObject("movie", movie);
     mv.setViewName("movie_detail");
     return mv;
   }
 
-  @RequestMapping(value = "/movies/movie/{id}", method = RequestMethod.POST)
+  @RequestMapping(value = "/movies/movie", method = RequestMethod.GET)
+  public ModelAndView getMovie(ModelAndView mv,final HttpServletRequest request) {
+    String id = request.getParameter("id");
+    mv.addObject("movie", moviesService.findEntity(id));
+    mv.setViewName("movie_detail");
+    return mv;
+  }
+
+  @RequestMapping(value = "/movies/movie", method = RequestMethod.POST)
   public ModelAndView update(ModelAndView mv, @ModelAttribute("movie") @Valid MovieEntityDTOImpl movie, BindingResult result) {
     logger.info("updating /myentity");
     if (result.hasErrors()) {
